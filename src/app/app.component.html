@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <ul class="navbar-nav">
+
+    <li class="nav-item">
+      <a routerLink="User" routerLinkActive="active" class="nav-link">User List</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="Device" routerLinkActive="active" class="nav-link">Device List</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="DeviceMapping" routerLinkActive="active" class="nav-link">Device Mapping List</a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="create-user" routerLinkActive="active" class="nav-link">Add User</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="create-device" routerLinkActive="active" class="nav-link">Add Device</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="create-devicemapping" routerLinkActive="active" class="nav-link">Map a device</a>
+    </li>
+  </ul>
+</nav>
+
+<h1 class="text-center"> {{title}} </h1>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<footer class="footer">
+  <div class="container">
+    <span>All Rights Reserved 2022 @CsatlosAndrei</span>
+  </div>
+</footer>

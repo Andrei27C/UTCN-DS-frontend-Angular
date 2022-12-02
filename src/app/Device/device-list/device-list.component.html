@@ -1,0 +1,29 @@
+<div class = "row">
+    <h2> Device List</h2>
+</div>
+
+<table class = "table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th> Id </th>
+            <th> Title</th>
+            <th> Description </th>
+            <th> Address </th>
+            <th> Consumption </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let device of devices" >
+            <td> {{device.deviceId}} </td>
+            <td> {{ device.title }} </td>
+            <td> {{ device.description }} </td>
+            <td> {{ device.address}} </td>
+            <td> {{ device.consumption}} </td>
+            <td>
+                <button (click) = "updateDevice(device.deviceId)" class = "btn btn-primary"> Update</button>
+                <button (click) = "deleteDevice(device.deviceId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "deviceDetails(device.deviceId)" class = "btn btn-primary" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

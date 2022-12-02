@@ -1,0 +1,31 @@
+<div class="row">
+  <h2> DeviceMapping List</h2>
+</div>
+
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th> Id</th>
+    <th> User Id</th>
+    <th> Device Id</th>
+    <th> Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let devicemapping of devicemappings">
+    <td> {{devicemapping.deviceMappingId}} </td>
+    <td> {{devicemapping.userId}} </td>
+    <td> {{ devicemapping.deviceId }} </td>
+
+    <td>
+      <button (click)="updateDeviceMapping(devicemapping.deviceMappingId)" class="btn btn-primary"> Update</button>
+      <button (click)="deleteDeviceMapping(devicemapping.deviceMappingId)" class="btn btn-danger"
+              style="margin-left: 10px"> Delete
+      </button>
+      <button (click)="devicemappingDetails(devicemapping.deviceMappingId)" class="btn btn-primary"
+              style="margin-left: 10px"> View
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
