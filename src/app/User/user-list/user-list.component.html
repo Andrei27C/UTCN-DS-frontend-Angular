@@ -19,9 +19,9 @@
            <td> {{ user.password }} </td>
            <td> {{ user.role}} </td>
             <td>
-                <button (click) = "updateUser(user.userId)" class = "btn btn-primary"> Update</button>
-                <button (click) = "deleteUser(user.userId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-                <button (click) = "userDetails(user.userId)" class = "btn btn-primary" style="margin-left: 10px"> View</button>
+                <button (click) = "updateUser(user.userId!)" class = "btn btn-primary"> Update</button>
+                <button (click) = "deleteUser(user.userId!)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "userDetails(user.userId!)" class = "btn btn-primary" style="margin-left: 10px"> View</button>
             </td>
         </tr>
     </tbody>

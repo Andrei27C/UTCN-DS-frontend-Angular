@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './User/user-list/user-list.component';
 import { CreateUserComponent } from './User/create-user/create-user.component';
-import { FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateUserComponent } from './User/update-user/update-user.component';
 import { UserDetailsComponent } from './User/user-details/user-details.component'
 import {DeviceListComponent} from "./Device/device-list/device-list.component";
@@ -16,6 +16,13 @@ import {DeviceMappingDetailsComponent} from "./DeviceMapping/devicemapping-detai
 import {UpdateDeviceMappingComponent} from "./DeviceMapping/update-devicemapping/update-devicemapping.component";
 import {DeviceMappingListComponent} from "./DeviceMapping/devicemapping-list/devicemapping-list.component";
 import {CreateDeviceMappingComponent} from "./DeviceMapping/create-devicemapping/create-devicemapping.component";
+import {LoginComponent} from "./login/login.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatCardModule} from "@angular/material/card";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -31,13 +38,22 @@ import {CreateDeviceMappingComponent} from "./DeviceMapping/create-devicemapping
     DeviceMappingListComponent,
     CreateDeviceMappingComponent,
     UpdateDeviceMappingComponent,
-    DeviceMappingDetailsComponent
+    DeviceMappingDetailsComponent,
+
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

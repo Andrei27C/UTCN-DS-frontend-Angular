@@ -12,6 +12,11 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
+  async checkLogin(name: string, password: string): Promise<Observable<User>> {
+    let postData = { userName: name, password: password };
+    return this.httpClient.post<User>(this.baseURL + '/login', postData)
+  }
+
   getUserList(): Observable<User[]>{
     return this.httpClient.get<User[]>(`${this.baseURL}`);
   }

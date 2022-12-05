@@ -25,7 +25,7 @@ export class UpdateDeviceMappingComponent implements OnInit {
   }
 
   onSubmit(){
-    this.devicemappingService.updateDeviceMapping(this.id, this.devicemapping).subscribe(data =>{
+    this.devicemappingService.updateDeviceMapping(this.id, this.devicemapping).subscribe(() =>{
       this.goToDeviceMappingList();
     }
     , error => console.log(error));

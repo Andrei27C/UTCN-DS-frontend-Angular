@@ -14,12 +14,17 @@ import {DeviceMappingDetailsComponent} from "./DeviceMapping/devicemapping-detai
 import {UpdateDeviceMappingComponent} from "./DeviceMapping/update-devicemapping/update-devicemapping.component";
 import {CreateDeviceMappingComponent} from "./DeviceMapping/create-devicemapping/create-devicemapping.component";
 import {DeviceMappingListComponent} from "./DeviceMapping/devicemapping-list/devicemapping-list.component";
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
+  //Login Routes
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  { path: 'login', component: LoginComponent },
+
   //User Routes
   {path: 'User', component: UserListComponent},
   {path: 'create-user', component: CreateUserComponent},
-  {path: '', redirectTo: 'User', pathMatch: 'full'},
+  // {path: '', redirectTo: 'User', pathMatch: 'full'},
   {path: 'update-user/:id', component: UpdateUserComponent},
   {path: 'user-details/:id', component: UserDetailsComponent},
 
