@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
         this.storeUser(this.user.userId);
 
         console.log(this.authenticationService.getCurrentUser());
-
+        // this.user.role = "admin";
         this.authenticationService.redirect(this.user);
 
       },

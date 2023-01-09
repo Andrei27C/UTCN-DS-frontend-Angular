@@ -1,4 +1,4 @@
-import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { AuthenticationService } from '../services/authentication/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {Router} from "@angular/router";
@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     ).subscribe({
       next: () => {
         this.router.navigate(['/login']).then(() => {});
-      }, error: (error) => {
+      }, error: (error: string) => {
         this.errorMessage = error;
       }
     });

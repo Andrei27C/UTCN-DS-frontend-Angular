@@ -45,20 +45,20 @@ export class AuthenticationService {
     );
   }
 
-  // public register(name: string, username: string, password: string): Observable<UserAuth> {
-  //   return this.http.post<UserAuth>(
-  //     environment.apiUrl + 'register/',
-  //     {
-  //       name: name,
-  //       username: username,
-  //       password: password,
-  //     }
-  //   ).pipe(
-  //     catchError((err) => {
-  //       return throwError(err);
-  //     })
-  //   );
-  // }
+  public register(name: string, username: string, password: string): Observable<UserAuth> {
+    return this.http.post<UserAuth>(
+      environment.apiUrl + 'register/',
+      {
+        name: name,
+        username: username,
+        password: password,
+      }
+    ).pipe(
+      catchError((err) => {
+        return throwError(err);
+      })
+    );
+  }
 
   // public logout() {
   //   sessionStorage.removeItem(this.tokenKey);
@@ -75,15 +75,15 @@ export class AuthenticationService {
   //   return this.isLoggedIn() ? sessionStorage.getItem(this.tokenKey) : null;
   // }
   //
-  public getCurrentUser(): User | null {
-    return this.isLoggedIn() ? JSON.parse(sessionStorage.getItem("currentUser") || '{}') : null
+  public getCurrentUser(): User {
+    return this.isLoggedIn() ? JSON.parse(sessionStorage.getItem("currentUser") || '{}') : ""
   }
 
   public redirect(user: User) {
     if (user.role == 'user') {
-      this.router.navigate(['/User']).then(() => {});
+      this.router.navigate(['/User-Dashboard']).then(() => {});
     } else if (user.role == 'admin') {
-      this.router.navigate(['/Admin']).then(() => {});
+      this.router.navigate(['/User']).then(() => {});
     } else {
       this.router.navigate(['/login']).then(() => {});
     }
