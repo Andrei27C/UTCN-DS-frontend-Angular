@@ -1,0 +1,24 @@
+version: '3.4'
+
+networks:
+    assignment1-network:
+        external: true
+
+services:
+  angular-integration:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: angular-integration
+    restart: always
+    ports:
+      - 4200:80
+    networks:
+      assignment1-network:
+         ipv4_address: 172.16.0.54
+         
+volumes:
+    angular-integration:
+        driver:
+            local
+
