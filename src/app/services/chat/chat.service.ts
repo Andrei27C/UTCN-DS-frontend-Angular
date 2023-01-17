@@ -12,7 +12,7 @@ export class ChatService {
   private readonly messageSubject: Subject<ChatMessage>;
 
   constructor() {
-    this.client = new ChatServiceClient('http://localhost:8080');
+    this.client = new ChatServiceClient('http://localhost:5024');
     this.messageSubject = new Subject<ChatMessage>();
   }
 
@@ -36,10 +36,15 @@ export class ChatService {
     });
   }
 
-  receiveMessage(): Observable<ChatMessage> {
+  receiveMessage(clientUsername: string): Observable<ChatMessage> {
     return new Observable(observer => {
-      const call = this.client.receiveMessage(new Client());
-      call.on('data', (message: ChatMessage) => {
+
+      let grpcClient = new Client();
+      grpcClient.setUsername(clientUsername);
+      const call = this.client.receiveMessage(grpcClient);
+      console.log(this.client.receiveMessage(grpcClient));
+      call.on('data', (message) => {
+        console.log(message.getMessage());
         observer.next(message);
       });
       call.on('end', () => {

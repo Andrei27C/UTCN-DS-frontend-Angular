@@ -26,7 +26,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {
   UserDashboardDetailsComponent
 } from "./user-dashboard/user-dashboard-details.component";
-import {ChatComponent} from "./User/chat/chat.component";
+import {ChatAdminComponent} from "./User/chat/chat-admin.component";
 import {RegisterComponent} from "./register/register.component";
 import {ChatComponentClient} from "./chat-client/chat.component";
 
@@ -50,7 +50,7 @@ import {ChatComponentClient} from "./chat-client/chat.component";
     RegisterComponent,
 
     UserDashboardDetailsComponent,
-     ChatComponent,
+     ChatAdminComponent,
     ChatComponentClient
   ],
   imports: [

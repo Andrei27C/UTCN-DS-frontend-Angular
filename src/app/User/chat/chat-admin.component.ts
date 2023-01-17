@@ -7,10 +7,10 @@ import {ChatService} from "../../services/chat/chat.service";
 
 @Component({
   selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  templateUrl: './chat-admin.component.html',
+  styleUrls: ['./chat-admin.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatAdminComponent implements OnInit {
   currentUser: User | null;
 
   msgMap: Map<string, ChatMessage[]>;
@@ -44,14 +44,16 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.newMessage = "";
     let client = "";
+    console.log("admin chat");
 
-    this.chatService.receiveMessage().subscribe(message => {
+    this.chatService.receiveMessage(this.sender).subscribe(message => {
       const receiver = message.getReceiver();
-      if (receiver == "") {
+      if (receiver === "admin") {
         client = message.getSender();
       } else {
         client = message.getReceiver();
       }
+      console.log(message);
 
       if (!this.msgMap.has(client)) {
         this.msgMap.set(client, [message]);

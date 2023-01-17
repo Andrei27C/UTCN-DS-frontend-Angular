@@ -20,7 +20,7 @@ import {
 } from "./user-dashboard/user-dashboard-details.component";
 import {Role} from "./services/authentication/authentication.service";
 import {AuthGuard} from "./helpers/auth.guard";
-import {ChatComponent} from "./User/chat/chat.component";
+import {ChatAdminComponent} from "./User/chat/chat-admin.component";
 import {ChatComponentClient} from "./chat-client/chat.component";
 
 const routes: Routes = [
@@ -85,7 +85,7 @@ const routes: Routes = [
     data: {
       role: [Role.ADMIN],
     }},
-  {path: 'chat', component: ChatComponent,
+  {path: 'chat', component: ChatAdminComponent,
     canActivate: [AuthGuard],
     data: {
       role: [Role.ADMIN],

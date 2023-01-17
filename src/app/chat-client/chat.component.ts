@@ -24,12 +24,12 @@ export class ChatComponentClient implements OnInit {
   }
 
   sendMessage(): void {
-    this.chatService.sendMessage(this.sender, "", this.newMessage)
+    this.chatService.sendMessage(this.sender, "admin", this.newMessage)
       .subscribe((response: Empty) => {
         const message = new ChatMessage();
         message.setMessage(this.newMessage);
         message.setSender(this.sender);
-        message.setReceiver("");
+        message.setReceiver("admin");
         this.messages.push(message);
         this.newMessage = "";
       });
@@ -37,7 +37,7 @@ export class ChatComponentClient implements OnInit {
 
   ngOnInit(): void {
     this.newMessage = "";
-    this.chatService.receiveMessage().subscribe(message => {
+    this.chatService.receiveMessage(this.sender).subscribe(message => {
       if (message.getReceiver() === this.sender || message.getSender() === this.sender) {
         this.messages.push(message);
       }
